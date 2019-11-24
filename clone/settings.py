@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'awards',
+    'users',
     'bootstrap4',
     'django_countries',
     'django.contrib.admin',
@@ -125,6 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
+    
     os.path.join(BASE_DIR, "static"),
 ]
 
