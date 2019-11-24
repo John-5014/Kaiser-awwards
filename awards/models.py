@@ -37,9 +37,17 @@ class technologies(models.Model):
 
 class Profile(models.Model):
   pic = models.ImageField(upload_to = 'profiles/')
+  user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+  bio = models.CharField(max_length=255, null=True)
+  prefname = models.CharField(max_length=45,null=True)
+  contact = models.CharField(max_length=255)
+
+  def __str__(self):
+    return self.prefname
 
 
 class Project(models.Model):
+  landing_page = models.ImageField(null=True, upload_to='landing/')
   title = models.CharField(max_length = 30)
   description =  models.TextField(max_length=400)
   country = CountryField(multiple=True)
@@ -62,3 +70,18 @@ class Project(models.Model):
 
   class Meta:
     ordering = ['title']
+
+class Rating(models.Model):
+
+  CHOICES = (1, 1),(2, 2),(3, 3),(4, 4),(5, 5),(6, 6),(7, 7),(8, 8),(9, 9),(10, 10)
+  design = models.IntegerField(choices=CHOICES,blank=True,default=0)
+  usability = models.IntegerField(choices=CHOICES,blank=True,default=0)
+  creativity = models.IntegerField(choices=CHOICES,blank=True,default=0)
+  content = models.IntegerField(choices=CHOICES,blank=True,default=0)
+  overall_score = models.IntegerField(blank=True,default=0)
+  project = models.ForeignKey(Project,on_delete=models.CASCADE)
+  profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
+
+
+  def __str__(self):
+    return self.project
