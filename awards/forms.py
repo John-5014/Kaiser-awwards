@@ -10,10 +10,10 @@ from .models import *
 #     exclude = ('design', 'usability', 'creativity''content', 'overall', 'posted', 'user' )
 
 
-class ProfileForm(forms.ModelForm):
-  class Meta:
-    model = Profile
-    fields = ('pic','bio', 'nickname','email')
+# class ProfileForm(forms.ModelForm):
+#   class Meta:
+#     model = Profile
+#     fields = ('pic','bio', 'nickname','email')
 
 # class RatingForm(forms.ModelForm):
 #   class Meta:
