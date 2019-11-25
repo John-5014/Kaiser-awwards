@@ -9,6 +9,6 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Project)
 admin.site.register(categories)
 admin.site.register(technologies)
-admin.site.register(Profile)
+# admin.site.register(Profile)
 
 
