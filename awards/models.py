@@ -35,15 +35,7 @@ class technologies(models.Model):
   def delete_technology(cls,technologies):
     cls.objects.filter(technologies=technologies).delete()
 
-class Profile(models.Model):
-  pic = models.ImageField(upload_to = 'profiles/')
-  user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
-  bio = models.CharField(max_length=255, null=True)
-  nickname = models.CharField(max_length=45,null=True)
-  email = models.CharField(max_length=255)
 
-  def __str__(self):
-    return self.nickname
 
 
 class Project(models.Model):
