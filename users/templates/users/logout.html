@@ -1,0 +1,13 @@
+{%extends 'main/base.html'%}
+{% load crispy_forms_tags%}
+{% load static %}
+
+{% block content %}
+{{block.super}}
+<div style="margin-top:14%;">
+<h2>See you Again</h2>
+  <div class="border-top pt-3">
+    <small class="text-muted"><a href="{% url 'login' %}" class="ml-2"><button class="btn btn-primary">Login Again</button></a></small>
+  </div>
+</div>
+{% endblock %}
