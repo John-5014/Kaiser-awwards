@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 import datetime as dt
 from django.http import HttpResponse,Http404
 from .models import *
-from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
 # from rest_framework.response import Response
@@ -13,7 +13,7 @@ from .forms import *
 
 
 # Create your views here.
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def index(request):
   date = dt.date.today()
   awards = Project.objects.all()
@@ -34,24 +34,7 @@ def convert_dates(dates):
   day = days[day_number]
   return day
 
-def profile(request):
-  current_user = request.user
-  profile = Profile.objects.get(user=current_user)
-  projects =  Project.objects.filter(user=current_user)
-  my_profile = Profile.objects.get(user=current_user)
-  return render(request,'profile.html',locals())
 
-@login_required(login_url='/accounts/login')
-def edit_profile(request):
-  current_user = request.user
-  if request.method == 'POST':
-    form = ProfileForm(request.POST, request.FILES)
-    if form.is_valid():
-      prof = form.save(commit=False)
-      prof.user = current_user
-      prof.save()
-      return redirect('profile')
-  else:
-    form = ProfileForm()
-  return render(request, 'edit_profile.html',{'form':form,'profile':profile})
+
+
     

@@ -6,8 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns=[
   url('^$',views.index,name = 'index'),
-  url(r'^profile$',views.profile,name='profile'),
-  url(r'^profile/edit$',views.edit_profile,name='edit'),
+  
 ]
 
 if settings.DEBUG:
