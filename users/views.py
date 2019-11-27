@@ -9,8 +9,11 @@ def register(request):
     form = UserRegisterForm(request.POST)
     if form.is_valid():
       username = form.cleaned_data.get('username')
-      messages.success(request,f'Your Account has been created! You are now able to login')
-      return redirect('index')
+      messages.success(request,f'Your Account has been created!')
+      user = form.save()
+      user.save()
+      # profile = user.profile
+      return redirect('login')
   else:
     form = UserRegisterForm()
 
@@ -18,6 +21,7 @@ def register(request):
 
 @login_required
 def profile(request):
+  # profile = Profile.objects.all()
   if request.method == 'POST':
     u_form = UserUpdateForm(request.POST,instance=request.user)
     p_form = ProfileUpdateForm(request.POST,request.FILES,instance=request.user.profile)
@@ -34,6 +38,7 @@ def profile(request):
     p_form = ProfileUpdateForm(instance=request.user.profile)
   context = {
     'u_form':u_form,
-    'p_form':p_form
+    'p_form':p_form,
+    # 'profile':profile
   }
   return render(request,'users/profile.html',context)

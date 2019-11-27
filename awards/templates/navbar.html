@@ -10,7 +10,7 @@
         <a class="navbar-brand" href="/">
           <h3 class="my-heading ">Home</h3>
       </a>
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="{%url 'post'%}">
         <h3 class="my-heading ">Post</h3>
     </a>
       <a class="navbar-brand" href="{% url 'profile' %}">
@@ -28,12 +28,12 @@
 
      
        
-    <div id="mySidenav" class="sidenav">
+    <div id="mySidenav" class="sidenav" style="background-image:url('https://www.cs2a.ca/wp-content/uploads/2017/02/awards-bg.jpg'); background-repeat: no-repeat;">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
       <ul class="mob-ul">
          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
          <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}">Profile</a></li>
-         <li class="nav-item"><a class="nav-link" href="#">Post</a></li>
+         <li class="nav-item"><a class="nav-link" href="{%url 'post'%}">Post</a></li>
          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
          
          
@@ -43,9 +43,9 @@
 
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <form class="form-inline my-2 my-lg-0 col-md-7">
-                <input class="myform-control mr-sm-2" type="search" placeholder="find projects and people" aria-label="Search">
-                <button class="btn btn-light"><i class="fa fa-search"></i></button>
+            <form class="form-inline my-2 my-lg-0 col-md-7" role="search" action="{% url 'search' %}">
+                <input class="myform-control mr-sm-2" type="search" placeholder="find projects" aria-label="Search" name="project">
+                <button class="btn btn-light" type="submit"><i class="fa fa-search"></i></button>
             </form>
             
             <ul class="navbar-nav ml-auto">
@@ -97,7 +97,7 @@ body {
 
 header.masthead {
     position: relative;
-    height: 100vh;
+    height: 80vh;
     background-color: #343a40;
     background: url('https://www.tatapowersolar.com/wp-content/uploads/2018/01/02103112/awards-header-mob.jpg') no-repeat center center;
     -webkit-background-size: cover;
@@ -443,7 +443,7 @@ overflow: hidden;
 overflow: hidden;
 }
 .box img {
-height: 160px;
+height: 190px;
 width: 100%;
 object-fit: cover;
 -o-object-fit: cover;
@@ -453,7 +453,7 @@ object-fit: cover;
 position: relative;
 }
 .item img {
-max-width: 100%;
+max-width: 100;
 -moz-transition: all 0.3s;
 -webkit-transition: all 0.3s;
 transition: all 0.3s;

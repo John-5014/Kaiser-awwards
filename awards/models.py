@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django_countries.fields import CountryField
 import datetime as dt
+from django.db.models import Q
 
 # Create your models here.
 
@@ -62,4 +63,11 @@ class Project(models.Model):
 
   class Meta:
     ordering = ['title']
+
+  @classmethod
+  def search_project(cls, search_term):
+
+    projects= cls.objects.filter(Q(title__title=search_term) | Q(description__icontains=search_term))
+
+    return projects
 

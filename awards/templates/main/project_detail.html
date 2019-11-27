@@ -1,0 +1,255 @@
+{%extends 'main/base.html'%}
+
+{% load static %}
+
+{% load ratings %}
+{% block content %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+
+
+<div class="container " style="margin-top:70px" id="guru">
+  
+  <div class="row">
+  <div class="col-md-6">
+      
+<div class="">
+    
+	
+		<div class="">
+       
+    <img src="{{ project.landing_page.url}}" alt="" class="img-responsive" style="width: 100%; height:auto;">
+    <br> <br>
+    <div class="container text-center">
+        
+        <div class="row">
+          <div class="col-sm my-5">
+              <h1>VISIT</h1>
+                  <button class="btn4">
+                      <span class="textOut4"><b>Go to..</b></span>
+                     <span class="textIn4"><b><a href="{{project.link}}">LIVE SITE</a></b></span>
+                  </button>
+          </div>
+          
+        </div>
+        
+      </div>   
+		</div>
+  </div>
+</div>
+<div class="col-md-6" style="color:white;">
+  <div class="call" style="float:right;">
+      <h3 >RATE PROJECTS HERE</h3>
+      <h1>By : {{user.username}}</h1>
+      <h1>{{project.title}}</h1>
+      <p>{{project.description}}</p>
+    {% ratings project %}
+  </div>
+  <!-- <h2>{{user.project}}</h2> -->
+</div>
+</div>
+
+</div>
+
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Lobster+Two|Oleo+Script');
+@import url('https://fonts.googleapis.com/css?family=Righteous');
+
+    
+button 
+{
+ font-family: 'Righteous', cursive;
+	width: 400px;
+	height: 2.5em;
+	border:2px solid white;
+	font-size: 27px;
+	line-height: 2.5em;
+	text-align: center;
+	position:relative;
+	overflow: hidden;
+	letter-spacing:5px;
+	
+    
+}
+
+ h1
+{
+       
+        font-family: 'Kaushan Script', cursive;
+}
+
+
+button span 
+{
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	transition: 0.4s ease-in;
+}
+
+.textOut1,.textOut2,.textOut3,.textOut4 
+{
+	left: 0%;
+
+}
+    
+    
+.textIn1,.textIn2
+{
+        color: yellow;
+}
+    
+.textIn3,.textIn4
+{
+        color: blue;
+}
+    
+    
+    
+.btn1
+{
+
+ background-image: linear-gradient(to right, #e90d9c, #ff2d52, #ff7e00, #c0bd00, #12eb25);
+ box-shadow:0 0 0 1px #9a00cd inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 2px 0 #9823d5, 0 8px 8px 1px rgba(0,0,0,0.5);
+  
+}
+
+.btn1:active
+{
+
+ box-shadow:0 0 0 1px #9a00cd inset, 0 0 0 1px rgba(255,255,255,0.15) inset, 0 1px 3px 1px rgba(0,0,0,0.3);
+ transform: translate(0px,10px);
+
+}
+
+.textIn1
+{
+
+	font-size: 1.1em;
+	background-image: linear-gradient(to right, #e90db9, #d500c4, #bb00d1, #9900de, #6712eb);
+	top:100%;
+}
+
+
+button:hover .textOut1 
+{
+	top: -100%;
+}
+
+button:hover .textIn1 
+{
+	top: 0;
+}
+    
+    
+.btn2
+{
+border-radius:10px 30px 10px;
+background-image: radial-gradient(circle, #11fbd2, #00cef1, #0099ef, #5a5bbc, #7e0664);
+box-shadow:0 0 0 1px #a20068 inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 2px 0 #a20068, 0 8px 8px 1px rgba(0,0,0,0.5);
+
+}
+
+.btn2:active
+{
+ box-shadow:0 0 0 1px #9a00cd inset, 0 0 0 1px rgba(255,255,255,0.15) inset, 0 1px 3px 1px rgba(0,0,0,0.3);
+ transform: translate(0px,10px);
+
+}
+
+.textIn2
+{
+	font-size: 1.1em;
+	background-image: linear-gradient(to bottom, #fd32c9, #eb008a, #cd0055, #a7042a, #7e1606);
+	left:100%;
+}
+
+
+button:hover .textOut2 {
+	left: -100%;
+}
+
+button:hover .textIn2 
+{
+	left: 0;
+}
+    
+.btn3
+{
+border-radius:20px 20px 20px;
+background-image: linear-gradient(to right top, #fb6d11, #ec1a3f, #c4005e, #840076, #06067e);
+box-shadow:0 0 0 1px #4EFB11 inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 2px 0 #4EFB11, 0 8px 8px 1px rgba(0,0,0,0.5);
+
+}
+
+.btn3:active
+{
+ box-shadow:0 0 0 1px #9a00cd inset, 0 0 0 1px rgba(255,255,255,0.15) inset, 0 1px 3px 1px rgba(0,0,0,0.3);
+ transform: translate(0px,10px);
+ 
+}
+
+.textIn3
+{
+	font-size: 1.1em;
+	background-image: linear-gradient(to right bottom, #11fbf1, #00ffd5, #00ffab, #00ff73, #4efb11);
+	left:-100%;
+}
+
+
+button:hover .textOut3 
+{
+	left: 100%;
+}
+
+button:hover .textIn3 
+{
+	left: 0%;
+}
+
+.btn4
+{
+border-radius:30px 30px 30px;
+background-image: linear-gradient(to bottom, #fb1b11, #ff003c, #ff005e, #ff007f, #fb119f);
+box-shadow:0 0 0 1px #08080B inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 2px 0 #08080B, 0 8px 8px 1px rgba(0,0,0,0.5);
+
+}
+
+.btn4:active
+{
+ box-shadow:0 0 0 1px #9a00cd inset, 0 0 0 1px rgba(255,255,255,0.15) inset, 0 1px 3px 1px rgba(0,0,0,0.3);
+ transform: translate(0px,10px);
+ 
+}
+
+.textIn4
+{
+
+	font-size: 1.1em;
+	background-image: radial-gradient(circle, #fbfb0f, #ff953e, #bf5060, #55304e, #08080b);
+	top:-110%;
+}
+
+
+button:hover .textOut4 
+{
+	top: 100%;
+
+}
+
+button:hover .textIn4 
+{
+	top: 0%;
+}
+
+
+    body{
+      background-color: blueviolet;
+    }
+    #guru{
+      
+    }
+  </style>
+  {% endblock %}

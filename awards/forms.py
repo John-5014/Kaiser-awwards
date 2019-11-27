@@ -2,12 +2,14 @@ from django import forms
 from .models import *
 
 
-# class UploadForm(forms.ModelForm):
+class UploadForm(forms.ModelForm):
 
-#   class Meta:
+  class Meta:
 
-#     model = Project
-#     exclude = ('design', 'usability', 'creativity''content', 'overall', 'posted', 'user' )
+    model = Project
+    exclude = ('design', 'usability', 'creativity','content', 'overall', 'posted', 'user' )
+
+
 
 
 # class ProfileForm(forms.ModelForm):
