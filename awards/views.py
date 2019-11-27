@@ -6,6 +6,7 @@ from .models import *
 from .models import *
 from .forms import UploadForm
 from django.views.generic import ListView,DetailView
+from django.contrib.auth.decorators import login_required
 # from rest_framework.response import Response
 # from rest_framework.views import APIView
 # from .serializers import ProfileSerializer, ProjectSerializer
@@ -15,6 +16,7 @@ from django.views.generic import ListView,DetailView
 
 # Create your views here.
 # @login_required(login_url='/accounts/login/')
+@login_required
 def index(request):
   date = dt.date.today()
   awards = Project.objects.all()
