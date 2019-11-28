@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 import datetime as dt
 
 # Create your tests here.
+#test cases here
 class categoriesTestCase(TestCase):
 
   def setUp(self):
